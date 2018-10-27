@@ -1,0 +1,596 @@
+@import "smart-grid.sass"
+
+body, img, ul, nav
+  margin: 0
+  padding: 0
+
+body
+  font-family: 'Open Sans', sans-serif
+
+.wrapper
+  +wrapper()
+
+.ham
+  display: none
+  +xs(display, block)
+  +s(display, block)
+  width: 100%
+  z-index: 2
+  transition: .3s
+  height: 30px
+  top: 20px
+  left: 20px
+  position: fixed
+  .h
+    &-item
+      position: absolute
+      background-color: #fff
+      width: 40px
+      height: 3px
+      transition: .3s
+      box-shadow: 0 0 10px rgba(0,0,0,0.5)
+      top: calc(50% - 3px)
+      &::before, &::after
+        box-shadow: 0 0 10px rgba(0,0,0,0.5)
+        position: absolute
+        content: " "
+        background-color: #fff
+        width: 40px
+        height: 3px
+        transition: .3s
+      &::before
+        transform: translateY(-15px)
+      &::after
+        transform: translateY(15px)
+  &-active .h-item
+    background-color: rgba(0, 0, 0, 0)
+    box-shadow: 0 0 10px rgba(0,0,0,0)
+  &-active .h-item::after
+    transform: rotate(-45deg)
+  &-active .h-item::before
+    transform: rotate(45deg)
+
+.content
+  width: 100vw
+  box-shadow: 0 0 10px rgba(0,0,0,0.5)
+  transition: transform .3s
+
+.content-active
+  transform: translateX(70%)
+
+.head
+  background-color: #fff
+  display: flex
+  justify-content: space-between
+  height: 120px
+  align-items: center
+  +row-flex()
+  +md(height, 70px)
+  +xs(display, none)
+  +s(display, none)
+  .logo
+    +col()
+    +size(4)
+
+.logo
+  cursor: default
+  font-size: 25px !important
+  font-weight: bold
+  color: #212121
+
+.left-menu
+  position: fixed
+  display: none
+  +xs(display, block)
+  +s(display, block)
+  height: 100vh
+  transition: transform .3s
+  transform: translateX(-100%)
+  nav
+    height: 100%
+    ul
+      display: flex
+      flex-direction: column
+      height: 70%
+      justify-content: space-around
+      li
+        position: relative
+        display: block
+        font-size: 20px
+
+
+.left-menu-active
+  transform: translateX(70%)
+
+
+
+.menu
+  +col()
+  +size(8)
+  ul
+    display: flex
+    justify-content: space-around
+    li
+      +md(font-size, 17px)
+      +sm(font-size, 14px)
+      display: block
+      font-size: 20px
+      color: #212121
+      cursor: pointer
+      transform: translateY(0)
+      transition: transform .2s
+      &:hover
+        transform: translateY(-3px)
+
+
+.h-main
+  background: url(../img/header_bg.jpg) no-repeat center top / cover
+  +md(min-height, calc(100vh - 70px))
+  +sm(min-height, calc(100vh - 70px))
+  +xs(min-height, 100vh)
+  +s(min-height, 100vh)
+  min-height: calc(100vh - 120px)
+  display: flex
+  position: relative
+  flex-direction: column
+  justify-content: center
+  align-items: center
+
+.h-title
+  color: #fff
+  text-align: center
+  // margin: 0 auto
+  &-big
+    font-weight: bold
+    font-size: 60px
+    +md(font-size, 50px)
+    +sm(font-size, 40px)
+
+  &-small
+    font-size: 22px
+    margin-top: 40px
+    +md(margin-top, 20px)
+    +md(font-size, 20px)
+    +sm(margin-top, 18px)
+    +sm(font-size, 18px)
+
+.buttons
+  position: absolute
+  left: 0
+  right: 0
+  bottom: 5%
+  display: flex
+  color: #fff
+  width: 100%
+  // margin-top: 113px
+  justify-content: center
+  transform: scale(1)
+  +row-flex
+  +md(transform, scale(0.6))
+  +sm(transform, scale(0.6))
+  +sm(bottom, 0)
+  .button
+    +col()
+    +size-xs(12)
+    +xs(padding, 20px 0px)
+    +s(padding, 20px 0px)
+    color: #fff
+    text-align: center
+    margin-bottom: 5px
+    padding: 28px 37px
+    border: 3px solid #fff
+    font-family: 'Roboto', sans-serif
+    font-weight: bold
+    font-size: 20px
+    cursor: pointer
+    background-color: rgba(0, 0, 0, 0)
+    transform: scale(1)
+    border-radius: 0
+    transition: border .3s, background-color .1s, transform .3s, color .2s, border-radius .1s
+    &:hover
+      transform: scale(1.05)
+      background-color: #00897b
+      border: 3px solid #00897b
+      color: #000
+      border-radius: 3px
+
+.title
+  display: flex
+  align-items: center
+  flex-direction: column
+  padding: 125px 0
+  +row-flex()
+  &-first
+    font-size: 30px
+    font-weight: bold
+    margin-bottom: 35px
+    text-align: center
+    color: #212121
+  &-second
+    text-align: center
+    font-size: 15px
+    color: #212121
+    +col()
+    +size(6)
+
+#about-us
+  padding-bottom: 115px
+
+.elements
+  +row-flex()
+  +sm(justify-content, center)
+  display: flex
+  justify-content: space-between
+  align-items: center
+  // margin-bottom: 115px
+  .item
+    +col()
+    +size(4)
+    +size-sm(12)
+    +sm(margin, 50px 0)
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    .i-title
+      font-size: 20px
+      font-weight: bold
+      color: #212121
+      margin: 20px
+    span
+      +sm(margin, 0px 250px)
+      +sm(margin, 0px 50px)
+      color: #212121
+      font-size: 15px
+      text-align: center
+      margin: 0 45px
+#services
+  background-color: #e4fdf9
+  padding-bottom: 115px
+  .item
+    +size-sm(8)
+    +size-s(8)
+    background-color: #fff
+    padding: 60px 0
+    margin-bottom: 30px
+    transform: scale(1)
+    border-radius: 0
+    transition: transform .3s, background-color .3s
+    &:hover
+      background-color: #00897b
+      transform: scale(1.025)
+      border-radius: 5px
+    .button
+      text-transform: uppercase
+      cursor: pointer
+      color: #212121
+      font-size: 20px
+      font-weight: bold
+      border: 2px solid #212121
+      padding: 10px 7px
+      margin-top: 50px
+      background-color: rgba(0, 0, 0, 0)
+      transform: translateY(0)
+      transition: .3s
+      &:hover
+        color: #fff
+        transform: translateY(4px)
+        background-color: #212121
+#portfolio
+  .button
+    display: flex
+    justify-content: center
+    align-items: center
+    a
+      text-decoration: none
+      text-align: center
+      font-size: 20px
+      font-weight: bold
+      border: 3px solid #00897b
+      color: #000
+      width: 177px
+      margin-bottom: 20px
+      cursor: pointer
+      padding: 15px 0
+      margin: 120px 0
+      transform: scale(1)
+      transition: .3s
+      &:hover
+        transform: scale(1.05)
+        background-color: #00897b
+        border: 3px solid #00897b
+        color: #fff
+        border-radius: 3px
+  .p-buttons
+    +row-flex()
+    display: flex
+    justify-content: center
+    flex-wrap: wrap
+    align-items: center
+    +sm(flex-direction, column)
+    +xs(flex-direction, column)
+    +s(flex-direction, column)
+    .p-button
+      +col()
+      +size-lg(3)
+      +size-md(3)
+      +size-sm(4)
+      +size-xs(6)
+      +size-s(9)
+      text-align: center
+      font-size: 20px
+      font-weight: bold
+      border: 2px solid #00897b
+      width: 177px
+      margin-bottom: 20px
+      cursor: pointer
+      padding: 5px 0
+      transform: scale(1)
+      transition: .3s
+      &:hover
+        transform: scale(1.05)
+        background-color: #00897b
+        border: 2px solid #00897b
+        color: #fff
+        border-radius: 3px
+.img-wrapper
+  +row-flex()
+  display: flex
+  flex-wrap: wrap
+  justify-content: center
+  align-items: center
+  margin-top: 70px
+  img
+    +size-s(9)
+    +size-xs(9)
+    margin: 10px
+
+#pricing
+  background-color: #f0f1f1
+  perspective: 1000px
+  padding-bottom: 120px
+
+.c-active
+  transform: rotateX(70deg) rotateY(10deg) rotateZ(-50deg) translateX(300px)
+  z-index: 0
+  perspective: 1000px
+  cursor: pointer !important
+
+.card-wrapper
+  display: flex
+  justify-content: center
+  flex-wrap: wrap
+  transition: .4s
+  cursor: default
+
+  .card
+    margin: 10px
+    width: 370px
+    height: 665px
+    background-color: #fff
+    display: flex
+    flex-direction: column
+    align-items: center
+    transition: transform .4s
+    &:hover
+      transform: translateZ(50px)
+      z-index: 1
+    &-head
+      width: 100%
+      padding: 54px 0
+      background: url(../img/pricing.png) no-repeat top
+      .c-title
+        text-align: center
+        color: #fff
+        font-size: 25px
+      .price
+        display: flex
+        justify-content: center
+        margin-top: 5px
+        &-main
+          color: #fff
+          font-size: 50px
+        span
+          font-size: 17px
+          align-self: flex-end
+          margin-bottom: 10px
+          color: #fff
+          margin-left: 7px
+    .options
+      display: flex
+      flex-direction: column
+      li
+        display: block
+        color: #212121
+        text-align: center
+        margin-top: 50px
+    .button
+      text-align: center
+      font-size: 20px
+      font-weight: bold
+      border: 2px solid #000
+      width: 177px
+      margin: 20px 0
+      cursor: pointer
+      padding: 5px 0
+      transform: scale(1)
+      transition: .3s
+      &:hover
+        transform: scale(1.05)
+        background-color: #00897b
+        border: 2px solid #00897b
+        color: #fff
+        border-radius: 3px
+
+#member-team
+  padding-bottom: 120px
+
+.c-wrapper
+  display: flex
+  justify-content: center
+  align-items: center
+  .owl-carousel
+
+.c-item
+  display: flex
+  flex-direction: column
+  align-items: center
+  .name
+    margin-top: 40px
+    font-size: 20px
+    font-weight: bold
+    text-align: center
+  .status
+    margin-top: 20px
+    margin-bottom: 40px
+    font-size: 15px
+    text-align: center
+  .socials
+    display: flex
+    width: 270px
+    justify-content: space-around
+    align-items: center
+    &-item
+      display: flex
+      justify-content: center
+      align-items: center
+      background-color: #f0f1f1
+      border-radius: 5px
+      width: 50px
+      height: 50px
+      cursor: pointer
+      transform: scale(1)
+      transition: transform .2s ease-in-out, background-color .3s ease-in-out
+      i
+        font-size: 25px
+        color: #00897b
+        transform: color .3s ease-in-out
+      &:hover
+        transform: scale(1.05)
+        background-color: #3949ab
+        i
+          color: #fff
+
+#blog
+  background-color: #e4fdf9
+  padding-bottom: 120px
+
+.blog
+  &-wrapper
+    display: flex
+    flex-direction: column
+  &-item
+    display: flex
+    flex-wrap: wrap
+    +row-flex()
+    +sm(justify-content, center)
+    +xs(justify-content, center)
+    +s(justify-content, center)
+    &:nth-child(2)
+      .text-box
+        +sm(order, 1)
+        +xs(order, 1)
+        +s(order, 1)
+    img
+      height: 100%
+      +col()
+      +size-lg(6)
+      +size-md(6)
+      +size-sm(10)
+      +size-xs(10)
+      +size-s(12)
+      +size(6)
+.text-box
+  display: flex
+  flex-direction: column
+  margin-top: 60px
+  padding-bottom: 60px
+  +col()
+  +size-lg(6)
+  +size-md(6)
+  +size-sm(10)
+  +size-xs(10)
+  +size-s(10)
+  +size(6)
+  +sm(align-items, center)
+  +xs(align-items, center)
+  +s(align-items, center)
+  .inf
+    display: flex
+    +sm(flex-direction, column)
+    +sm(align-items, center)
+    +xs(flex-direction, column)
+    +xs(align-items, center)
+    +s(flex-direction, column)
+    +s(align-items, center)
+
+    margin: 25px 0
+    .date, .text
+      margin-right: 35px
+      +sm(margin-right, 0)
+      +xs(margin-right, 0)
+      +s(margin-right, 0)
+      font-weight: bold
+      span
+        margin-left: 15px
+  &-title
+    color: #212121
+    font-size: 25px
+    font-weight: bold
+    cursor: pointer
+    transition: color .3s
+    &:hover
+      color: #00897b
+  &-text
+    color: #212121
+    font-size: 15px
+    width: 70%
+.inf
+  display: flex
+  font-size: 17px
+  .date
+    display: flex
+    flex-wrap: nowrap
+  .text
+    display: flex
+    flex-wrap: nowrap
+
+#contact-area
+  background: url(../img/rawpixel.jpg) no-repeat center top / cover
+  .title
+    &-first, &-second
+      color: #fff
+      z-index: 1
+  .commun
+    margin-top: 100px
+    // margin-bottom: 30px
+    display: flex
+    justify-content: space-between
+    flex-wrap: wrap
+    +row-flex()
+    +sm(justify-content, center)
+    &-item
+      +col()
+      +size-lg(4)
+      +size-md(4)
+      +size-sm(12)
+      +size-xs(7)
+      +size-s(7)
+      +size(4)
+      padding-bottom: 30px
+      display: flex
+      flex-direction: column
+      align-items: center
+      i
+        margin-bottom: 50px
+        color: #fff
+        font-size: 65px
+        padding: 50px
+        max-width: 70px
+        background-color: #3949ab
+        border-radius: 50%
+      span
+        font-size: 20px
+        font-weight: bold
+        color: #fff
+        text-align: center

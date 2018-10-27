@@ -1,0 +1,4 @@
+[10/19/2018, 1:58:05 AM] layer "+8801743331996 +8801928737807": Expected Either a default asset specification or a layer asset specification but "+" found.
+[10/19/2018, 1:58:05 AM] layer "quickmasud@gmail.com quickmasud@yahoo.com": Unsupported extension: com
+[10/19/2018, 1:58:05 AM] layer "blog3.jpg": Duplicate path: blog3.jpg
+[10/19/2018, 1:58:05 AM] layer "blog3.jpg": Duplicate path: blog3.jpg
